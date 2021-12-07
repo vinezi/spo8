@@ -1,0 +1,52 @@
+﻿<Window x:Class="spo8.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+        xmlns:local="clr-namespace:spo8"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" 
+        Background="#D4D4D3"
+        
+        Loaded="Window_Loaded" Closing="Window_Closing"
+>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Menu VerticalAlignment="Top">
+            <MenuItem Header="File">    
+                <MenuItem Header="Open">
+                    <MenuItem Name="OpenCSarp" Header="C#..." Click="OpenCSarp_Click"/>
+                    <MenuItem Name="OpenAll" Header="File..." Click="OpenAll_Click"/>
+                </MenuItem>
+                <Separator />
+                <MenuItem Name="SaveFile" Header="Save" Click="SaveFile_Click"/>
+                <MenuItem Name="SaveFileAs" Header="Save as..." Click="SaveFileAs_Click"/>
+                <MenuItem Name="Close" Header="Close" Click="Close_Click"/>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Name="Cut" Header="Cut" Click="Cut_Click"/>
+                <MenuItem Name="Copy" Header="Copy" Click="Copy_Click"/>
+                <MenuItem Name="Paste" Header="Paste" Click="Paste_Click"/>
+                <Separator />
+                <MenuItem Name="Clear" Header="Clear" Click="Clear_Click"/>
+            </MenuItem>
+
+        </Menu>
+        <avalonEdit:TextEditor Background="Transparent" Margin="2 2" 
+                               Grid.Row="1" Name="txtCode" FontFamily="Consolas"
+                               FontSize="10pt"  ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                               ScrollViewer.VerticalScrollBarVisibility="Auto"
+                               AllowDrop="True" DragEnter="txtCode_DragEnter" Drop="txtCode_Drop" DragLeave="txtCode_DragLeave"
+                               />
+
+        <StackPanel Grid.Row="2" Background="#293357" >
+            <TextBlock Text="Path" Name="FullFileName" Foreground="White" Padding="3" Margin="3 0 0 0"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
